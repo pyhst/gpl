@@ -1,11 +1,11 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
-use Growinc\Payment\Helper;
+use PyGPaymentLib\Helper;
 
 class Duitku extends Requestor implements VendorInterface
 {
@@ -192,7 +192,7 @@ class Duitku extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function OnlineTransferInquiry(\Growinc\Payment\Transaction $transaction)
+	public function OnlineTransferInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$now = round(microtime(true) * 1000);
@@ -273,7 +273,7 @@ class Duitku extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function OnlineTransferExec(\Growinc\Payment\Transaction $transaction)
+	public function OnlineTransferExec(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$now = round(microtime(true) * 1000);
@@ -358,7 +358,7 @@ class Duitku extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function ClearingInquiry(\Growinc\Payment\Transaction $transaction)
+	public function ClearingInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$now = round(microtime(true) * 1000);
@@ -457,7 +457,7 @@ class Duitku extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function ClearingExec(\Growinc\Payment\Transaction $transaction)
+	public function ClearingExec(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$now = round(microtime(true) * 1000);
@@ -543,7 +543,7 @@ class Duitku extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function CheckTransfer(\Growinc\Payment\Transaction $transaction)
+	public function CheckTransfer(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$now = round(microtime(true) * 1000);
@@ -620,7 +620,7 @@ class Duitku extends Requestor implements VendorInterface
 	 *
 	 */
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		$data = (object) $this->SecurePayment($transaction);
 		$content = (object) json_decode($data->response['content']);
@@ -630,7 +630,7 @@ class Duitku extends Requestor implements VendorInterface
 		header('location: ' . $payment_url);
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$this->transaction = $transaction;

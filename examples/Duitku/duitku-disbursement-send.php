@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['DUITKU_DISBURSEMENT_MERCHANT_ID'],
 	$_ENV['DUITKU_DISBURSEMENT_API_KEY']
 );
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['DUITKU_HOST_URL']);
 $init->setParams([
 	'email' => $_ENV['DUITKU_DISBURSEMENT_EMAIL'],
 ]);
-$vendor = new \Growinc\Payment\Vendors\Duitku($init);
+$vendor = new \PyGPaymentLib\Vendors\Duitku($init);
 
 // /**
 //  *
@@ -51,7 +51,7 @@ $vendor = new \Growinc\Payment\Vendors\Duitku($init);
  *
  */
 try {
-	$transaction = new \Growinc\Payment\Transaction();
+	$transaction = new \PyGPaymentLib\Transaction();
 	$transaction->setCustomerBankName('014');
 	// $transaction->setCustomerBankAccountNumber('6044222099');
 	// $transaction->setCustomerBankAccountNumber('8760673566'); // Duitku for test only
@@ -90,7 +90,7 @@ try {
 	// try {
 	// 	$content = (object) json_decode($response['content']);
 	// 	//
-	// 	$transaction = new \Growinc\Payment\Transaction();
+	// 	$transaction = new \PyGPaymentLib\Transaction();
 	// 	$transaction->setTransactionID($content->data->disburseId);
 	// 	$transaction->setCustomerBankName($content->data->bankCode);
 	// 	$transaction->setCustomerBankAccountNumber($content->data->bankAccount);
@@ -119,7 +119,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankName('014');
 // 	// $transaction->setCustomerBankAccountNumber('6044222099');
 // 	$transaction->setCustomerBankAccountNumber('8760673466'); // Duitku for test only
@@ -158,7 +158,7 @@ try {
 // 	try {
 // 		$content = (object) json_decode($response['content']);
 // 		//
-// 		$transaction = new \Growinc\Payment\Transaction();
+// 		$transaction = new \PyGPaymentLib\Transaction();
 // 		$transaction->setTransactionID($content->data->disburseId);
 // 		$transaction->setCustomerBankName($content->data->bankCode);
 // 		$transaction->setCustomerBankAccountNumber($content->data->bankAccount);
@@ -201,7 +201,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setTransactionID('111345');
 // 	//
 // 	$result = $vendor->CheckTransfer($transaction);

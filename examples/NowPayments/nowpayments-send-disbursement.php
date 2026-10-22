@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(null, null);
+$init = new \PyGPaymentLib\Init(null, null);
 $init->setMID($_ENV['NOWPAYMENTS_API_KEY']);
 $init->setPublicKey($_ENV['NOWPAYMENTS_PUBLIC_KEY']);
 $init->setPaymentURL($_ENV['NOWPAYMENTS_HOST_URL']);
@@ -12,7 +12,7 @@ $init->setReturnURL($_ENV['NOWPAYMENTS_WEBHOOK_URL']);
 $init->setParam('NOWPAYMENTS_EMAIL', $_ENV['NOWPAYMENTS_EMAIL']);
 $init->setParam('NOWPAYMENTS_PASSWORD', $_ENV['NOWPAYMENTS_PASSWORD']);
 
-$vendor = new \Growinc\Payment\Vendors\NowPayments($init);
+$vendor = new \PyGPaymentLib\Vendors\NowPayments($init);
 
 
 
@@ -49,7 +49,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'CheckBalance') {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setOrderID(time());
 // 	$transaction->setCustomerBankAccountNumber('7700173383');
 // 	$transaction->setCustomerBankCode('011');
@@ -70,7 +70,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'CheckBalance') {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setOrderID(time());
 // 	$transaction->setCustomerBankAccountNumber('7700173383');
 // 	$transaction->setCustomerBankCode('011');

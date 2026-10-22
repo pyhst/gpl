@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['IPAY_MERCHANT_CODE'],
 	$_ENV['IPAY_MERCHANT_KEY']
 );
@@ -10,7 +10,7 @@ $init->setPaymentURL($_ENV['IPAY_HOST_URL']);
 $init->setCallbackURL($_ENV['IPAY_CALLBACK_URL']);
 $init->setReturnURL($_ENV['IPAY_RETURN_URL']);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setCustomerName('testing');
 $transaction->setCustomerEmail('testing@gmail.com');
 // $transaction->setCustomerPhone('081293145954');
@@ -61,7 +61,7 @@ $transaction->setPaymentMethod('26');
 // $transaction->setPaymentMethod('63');
 // $transaction->setPaymentMethod('75');
 
-$vendor = new \Growinc\Payment\Vendors\Ipay88($init);
+$vendor = new \PyGPaymentLib\Vendors\Ipay88($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction); // return payment URL

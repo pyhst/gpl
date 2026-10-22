@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['TCTP_MID'],
 	$_ENV['TCTP_SECRET_KEY']
 );
@@ -10,9 +10,9 @@ $init->setRequestURL($_ENV['TCTP_HOST_URL']);
 $init->setCallbackURL($_ENV['TCTP_CALLBACK_URL']);
 $init->setReturnURL($_ENV['TCTP_RETURN_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\TCTP($init);
+$vendor = new \PyGPaymentLib\Vendors\TCTP($init);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setCustomerName('LOREM');
 $transaction->setCustomerEmail('lorem@ipsum.com');
 $transaction->setCustomerPhone('081212121313');

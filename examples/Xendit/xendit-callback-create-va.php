@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['XENDIT_API_KEY'],
 	$_ENV['XENDIT_PUBLIC_KEY']
 );
 
-$vendor = new \Growinc\Payment\Vendors\Xendit($init);
+$vendor = new \PyGPaymentLib\Vendors\Xendit($init);
 
 try {
 	$raw_data = file_get_contents("php://input");

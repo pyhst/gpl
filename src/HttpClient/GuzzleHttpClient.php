@@ -1,12 +1,12 @@
 <?php
 
-namespace Growinc\Payment\HttpClient;
+namespace PyGPaymentLib\HttpClient;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\TransferStats;
 use GuzzleHttp\Exception\RequestException;
 
-use Growinc\Payment\Exceptions\ApiException;
+use PyGPaymentLib\Exceptions\ApiException;
 
 use GuzzleHttp\Psr7\Request;
 

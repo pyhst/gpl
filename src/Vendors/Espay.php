@@ -1,9 +1,9 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
 class Espay extends Requestor implements VendorInterface
 {
@@ -22,9 +22,9 @@ class Espay extends Requestor implements VendorInterface
 				"rq_uuid": "e9b185e4-031d-4794-bc21-1a3282506051",
 				"rq_datetime": "2021-06-18 14:14:39",
 				"sender_id": "SGOPLUS",
-				"receiver_id": "SGWGROWINC",
+				"receiver_id": "SGW",
 				"password": "Y0F,(5EM=#",
-				"comm_code": "SGWGROWINC",
+				"comm_code": "SGW",
 				"member_code": "",
 				"order_id": "0024000477",
 				"signature": "2163c0d2b0148d37b8c05630fe8bb39e5fbcbb6ad4303c1c25c66ff7db3337bb"
@@ -81,9 +81,9 @@ class Espay extends Requestor implements VendorInterface
 				"rq_uuid": "403e7d8b-5f57-417d-82ae-67ebc02bbbdd",
 				"rq_datetime": "2021-06-25 15:15:15",
 				"sender_id": "SGOPLUS",
-				"receiver_id": "SGWGROWINC",
+				"receiver_id": "SGW",
 				"password": "Y0F,(5EM=#",
-				"comm_code": "SGWGROWINC",
+				"comm_code": "SGW",
 				"member_code": "4490587880694973",
 				"member_cust_id": "SYSTEM",
 				"member_cust_name": "SYSTEM",
@@ -198,12 +198,12 @@ class Espay extends Requestor implements VendorInterface
 		// Inapplicable
 	}
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$this->transaction = $transaction;
@@ -329,7 +329,7 @@ class Espay extends Requestor implements VendorInterface
 			$this->form['signature_hashed'] = $signature_hashed;
 			//
 			$this->form['authorization'] = $this->init->getMID() . ':' . $params['password'];
-			// $this->form['authorization'] = 'GROWINC' . ':' . $params['password'];
+			// $this->form['authorization'] = '' . ':' . $params['password'];
 			$this->form['authorization_encoded'] = base64_encode($this->form['authorization']);
 			//
 			$this->form['params'] = $params;
@@ -458,7 +458,7 @@ class Espay extends Requestor implements VendorInterface
 			//
 			// $this->form['authorization'] = $this->init->getMID();
 			// $this->form['authorization'] = $this->init->getMID() . ':' . $params['password'];
-			// $this->form['authorization'] = 'GROWINC' . ':' . $params['password'];
+			// $this->form['authorization'] = '' . ':' . $params['password'];
 			/*------------------------------^ End of Debug ^---------- */
 			$this->request['url'] = SELF::CleanURL(
 				$this->init->getRequestURL() .
@@ -497,7 +497,7 @@ class Espay extends Requestor implements VendorInterface
 						"rs_datetime": "2021-06-25 21:33:55",
 						"error_code": "0000",
 						"error_message": "",
-						"comm_code": "SGWGROWINC",
+						"comm_code": "SGW",
 						"member_code": null,
 						"tx_id": "ESP1608032198KBSU",
 						"order_id": "0008032194",
@@ -569,7 +569,7 @@ class Espay extends Requestor implements VendorInterface
 		// Inapplicable
 	}
 
-	public function StatusPayment(\Growinc\Payment\Transaction $transaction)
+	public function StatusPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 	}
 
@@ -577,7 +577,7 @@ class Espay extends Requestor implements VendorInterface
 	{
 	}
 
-	public function CancelTransaction(\Growinc\Payment\Transaction $transaction)
+	public function CancelTransaction(\PyGPaymentLib\Transaction $transaction)
 	{
 		// try {
 		// 	$this->transaction = $transaction;
@@ -667,7 +667,7 @@ class Espay extends Requestor implements VendorInterface
 		// return $result ?? [];
 	}
 
-	// public function SecurePaymentWallet(\Growinc\Payment\Transaction $transaction)
+	// public function SecurePaymentWallet(\PyGPaymentLib\Transaction $transaction)
 	// {
 	// 	try {
 	// 		$this->transaction = $transaction;
@@ -768,7 +768,7 @@ class Espay extends Requestor implements VendorInterface
 	// 		$this->request['headers'] = [
 	// 			'Content-Type' => 'application/x-www-form-urlencoded',
 	// 			'Accept' => 'application/json',
-	// 			'Authorization' => 'Basic ' . base64_encode("GROWINC:$credential_password"),
+	// 			'Authorization' => 'Basic ' . base64_encode(":$credential_password"),
 	// 			'Content-Length' => strlen(json_encode($this->request['data'])),
 	// 		];
 
@@ -863,7 +863,7 @@ class Espay extends Requestor implements VendorInterface
 	// 	return $result ?? [];
 	// }
 
-	public function CancelTransactionWallet(\Growinc\Payment\Transaction $transaction)
+	public function CancelTransactionWallet(\PyGPaymentLib\Transaction $transaction)
 	{
 		// try {
 		// 	$this->transaction = $transaction;
@@ -908,7 +908,7 @@ class Espay extends Requestor implements VendorInterface
 		// 		'Content-Type' => 'application/x-www-form-urlencoded',
 		// 		// 'Content-Type' => 'application/json',
 		// 		'Accept' => 'application/json',
-		// 		'Authorization' => 'Basic ' . base64_encode("GROWINC:$credential_password"),
+		// 		'Authorization' => 'Basic ' . base64_encode(":$credential_password"),
 		// 		'Content-Length' => strlen(json_encode($this->request['data'])),
 		// 	];
 

@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['IPAY_MERCHANT_CODE'],
 	$_ENV['IPAY_MERCHANT_KEY']
 );
 $init->setRequestURL($_ENV['IPAY_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\Ipay88($init);
+$vendor = new \PyGPaymentLib\Vendors\Ipay88($init);
 
 try {
 	$result = $vendor->Inquiry((object) [

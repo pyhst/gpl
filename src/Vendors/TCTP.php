@@ -1,11 +1,11 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
 class TCTP extends Requestor implements VendorInterface
 {
@@ -16,15 +16,15 @@ class TCTP extends Requestor implements VendorInterface
 	public function Index(){}
 	public function GetToken($args){}
 	public function CreateDummyForm($args){}
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction){}
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction){}
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction){}
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction){}
 
 	/*==========================================================================================
 												Start of Function
 	==========================================================================================**/
 
 		public function CreatePaymentToken(
-			\Growinc\Payment\Transaction $transaction
+			\PyGPaymentLib\Transaction $transaction
 		) {
 			try {
 				$this->transaction = $transaction;
@@ -292,7 +292,7 @@ class TCTP extends Requestor implements VendorInterface
 
 
 		public function GetPaymentOption(
-			\Growinc\Payment\Transaction $transaction,
+			\PyGPaymentLib\Transaction $transaction,
 			$payment_token
 		) {
 			try {
@@ -359,7 +359,7 @@ class TCTP extends Requestor implements VendorInterface
 
 
 		public function GetPaymentOptionDetail(
-			\Growinc\Payment\Transaction $transaction,
+			\PyGPaymentLib\Transaction $transaction,
 			$payment_token,
 			$category_code = '',
 			$group_code = ''
@@ -469,7 +469,7 @@ class TCTP extends Requestor implements VendorInterface
 
 
 		public function DoPayment(
-			\Growinc\Payment\Transaction $transaction,
+			\PyGPaymentLib\Transaction $transaction,
 			$payment_token
 		) {
 			try {
@@ -656,9 +656,6 @@ class TCTP extends Requestor implements VendorInterface
 									"locale": "en",
 									"additionalInfo": {
 										"merchantDetails": {
-											"name": "PT. Growinc Teknologi Indonesia",
-											"address": "Foresta Business Loft 5\n\nLengkong Kulon, Pagedangan, Tangerang, Banten",
-											"email": "info@growinc.co.id",
 											"logoUrl": "https:\/\/pgw-static-sandbox.s3.amazonaws.com\/images\/merchantlogo\/360360000000200.png"
 										},
 										"transactionDetails": {
@@ -677,7 +674,6 @@ class TCTP extends Requestor implements VendorInterface
 											"autoRedirect": false,
 											"redirectImmediately": false,
 											"autoRedirectionTimer": 5000,
-											"frontendReturnUrl": "https:\/\/ibank.growinc.dev\/oanwef4851ashrb\/pg\/dk\/redapi_form\/",
 											"frontendReturnData": "eyJsb2NhbGUiOm51bGwsImludm9pY2VObyI6IjE2MDY5MDc0ODkiLCJjaGFubmVsQ29kZSI6IkNDIiwicmVzcENvZGUiOiIyMDAwIiwicmVzcERlc2MiOiJUcmFuc2FjdGlvbiBpcyBjb21wbGV0ZWQsIHBsZWFzZSBkbyBwYXltZW50IGlucXVpcnkgcmVxdWVzdCBmb3IgZnVsbCBwYXltZW50IGluZm9ybWF0aW9uLiJ9"
 										}
 									},
@@ -701,9 +697,6 @@ class TCTP extends Requestor implements VendorInterface
 									"locale": "en",
 									"additionalInfo": {
 										"merchantDetails": {
-											"name": "PT. Growinc Teknologi Indonesia",
-											"address": "Foresta Business Loft 5\n\nLengkong Kulon, Pagedangan, Tangerang, Banten",
-											"email": "info@growinc.co.id",
 											"logoUrl": "https:\/\/pgw-static-sandbox.s3.amazonaws.com\/images\/merchantlogo\/360360000000200.png"
 										},
 										"transactionDetails": {
@@ -722,7 +715,6 @@ class TCTP extends Requestor implements VendorInterface
 											"autoRedirect": false,
 											"redirectImmediately": false,
 											"autoRedirectionTimer": 5000,
-											"frontendReturnUrl": "https:\/\/ibank.growinc.dev\/oanwef4851ashrb\/pg\/dk\/redapi_form\/",
 											"frontendReturnData": "eyJsb2NhbGUiOm51bGwsImludm9pY2VObyI6IjEwMTAwIiwiY2hhbm5lbENvZGUiOiJPVk8iLCJyZXNwQ29kZSI6IjIwMDAiLCJyZXNwRGVzYyI6IlRyYW5zYWN0aW9uIGlzIGNvbXBsZXRlZCwgcGxlYXNlIGRvIHBheW1lbnQgaW5xdWlyeSByZXF1ZXN0IGZvciBmdWxsIHBheW1lbnQgaW5mb3JtYXRpb24uIn0="
 										}
 									},
@@ -867,11 +859,11 @@ class TCTP extends Requestor implements VendorInterface
 												Start of More Function
 	==========================================================================================**/
 
-		public function GetEncryptCardData(\Growinc\Payment\Transaction $transaction)
+		public function GetEncryptCardData(\PyGPaymentLib\Transaction $transaction)
 		{
 			$this->request['form'] = [];
 			$this->request['time'] = $transaction->getTime();
-			$this->request['url'] = 'http://localhost/git/GrowincPaymentLib/examples/tctp/enccard.php';
+			$this->request['url'] = 'http://localhost/examples/tctp/enccard.php';
 			$this->request['headers'] = [];
 			$this->request['option'] = [
 					'to_json' => 1,
@@ -890,7 +882,7 @@ class TCTP extends Requestor implements VendorInterface
 			return $content;
 		}
 
-		public function EncryptCardData(\Growinc\Payment\Transaction $transaction)
+		public function EncryptCardData(\PyGPaymentLib\Transaction $transaction)
 		{
 			if (isset($_POST['submit']) && !empty($_POST['submit'])) {
 				echo $_POST['encryptedCardInfo'];

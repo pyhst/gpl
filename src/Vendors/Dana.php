@@ -1,11 +1,11 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
-use Growinc\Payment\Helper;
+use PyGPaymentLib\Helper;
 
 class Dana extends Requestor implements VendorInterface
 {
@@ -108,12 +108,12 @@ if (!openssl_sign($payload, $signature, $private_key, OPENSSL_ALGO_SHA256)) {
 		// Inapplicable
 	}
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Not applicable
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Not applicable
 	}
@@ -283,7 +283,7 @@ if (!openssl_sign($payload, $signature, $private_key, OPENSSL_ALGO_SHA256)) {
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function BankTransferInquiry(\Growinc\Payment\Transaction $transaction)
+	public function BankTransferInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$time = time();
@@ -384,7 +384,7 @@ if (!openssl_sign($payload, $signature, $private_key, OPENSSL_ALGO_SHA256)) {
 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function BankTransferExec(\Growinc\Payment\Transaction $transaction)
+	public function BankTransferExec(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$time = time();
@@ -481,7 +481,7 @@ if (!openssl_sign($payload, $signature, $private_key, OPENSSL_ALGO_SHA256)) {
 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function BankTransferInquiryStatus(\Growinc\Payment\Transaction $transaction)
+	public function BankTransferInquiryStatus(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$time = time();
@@ -558,7 +558,7 @@ if (!openssl_sign($payload, $signature, $private_key, OPENSSL_ALGO_SHA256)) {
 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function EmoneyTransferInquiry(\Growinc\Payment\Transaction $transaction)
+	public function EmoneyTransferInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 // 		try {
 // 			$time = time();
@@ -664,7 +664,7 @@ if (!openssl_sign($payload, $signature, $private_key, OPENSSL_ALGO_SHA256)) {
 // 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function EmoneyTransferExec(\Growinc\Payment\Transaction $transaction)
+	public function EmoneyTransferExec(\PyGPaymentLib\Transaction $transaction)
 	{
 // 		try {
 // 			$time = time();
@@ -767,7 +767,7 @@ if (!openssl_sign($payload, $signature, $private_key, OPENSSL_ALGO_SHA256)) {
 // 		return SELF::JSONResult($this->request, $res ?? [], $status_code ?? 400);
 	}
 
-	public function EmoneyTransferExecCheckStatus(\Growinc\Payment\Transaction $transaction)
+	public function EmoneyTransferExecCheckStatus(\PyGPaymentLib\Transaction $transaction)
 	{
 // 		try {
 // 			$time = time();

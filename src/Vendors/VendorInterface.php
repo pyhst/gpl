@@ -1,6 +1,6 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
 interface VendorInterface
 {
@@ -10,8 +10,8 @@ interface VendorInterface
 	//
 	public function CreateDummyForm($args);
 	//
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction);
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction);
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction);
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction);
 	public function Callback(object $request);
 	public function CallbackAlt(object $request);
 	//

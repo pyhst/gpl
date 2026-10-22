@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['MIDTRANS_CLIENT_KEY'],
 	$_ENV['MIDTRANS_SERVER_KEY']
 );
 $init->setRequestURL($_ENV['MIDTRANS_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\Midtrans($init);
+$vendor = new \PyGPaymentLib\Vendors\Midtrans($init);
 try {
 	$result = $vendor->Inquiry((object) [
 		'order_id' => '0025325773', // pga order id

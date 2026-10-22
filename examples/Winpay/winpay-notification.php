@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['WINPAY_PRIVATE_KEY_1'],
 	$_ENV['WINPAY_PRIVATE_KEY_2']
 );
 
-$vendor = new \Growinc\Payment\Vendors\Winpay($init);
+$vendor = new \PyGPaymentLib\Vendors\Winpay($init);
 
 try {
 	// should check no_reff (check on merchant side) and id_transaksi (winpay transaction id)

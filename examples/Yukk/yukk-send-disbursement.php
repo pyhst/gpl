@@ -2,11 +2,11 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['YUKK_CLIENT_ID'], $_ENV['YUKK_CLIENT_SECRET']);
+$init = new \PyGPaymentLib\Init($_ENV['YUKK_CLIENT_ID'], $_ENV['YUKK_CLIENT_SECRET']);
 $init->setPaymentURL($_ENV['YUKK_HOST_URL']);
 $init->setRequestURL($_ENV['YUKK_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\Yukk($init);
+$vendor = new \PyGPaymentLib\Vendors\Yukk($init);
 
 
 
@@ -47,7 +47,7 @@ $vendor = new \Growinc\Payment\Vendors\Yukk($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankCode('014');
 // 	$transaction->setCustomerBankAccountNumber('6044222099');
 // 	$result = $vendor->BankAccountInquiry($transaction);
@@ -78,7 +78,7 @@ $vendor = new \Growinc\Payment\Vendors\Yukk($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankCode('011');
 // 	$transaction->setCustomerBankAccountNumber('7700173383');
 // 	$transaction->setAmount(10500);

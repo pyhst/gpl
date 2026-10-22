@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['ESPAY_MERCHANT_CODE'],
 	$_ENV['ESPAY_API_KEY']
 );
@@ -12,7 +12,7 @@ $init->setParams([
 	'password' => $_ENV['ESPAY_PASSWORD'],
 ]);
 
-$vendor = new \Growinc\Payment\Vendors\Espay($init);
+$vendor = new \PyGPaymentLib\Vendors\Espay($init);
 
 try {
 	$result = $vendor->Inquiry((object) [
@@ -29,7 +29,7 @@ try {
 			"rs_datetime": "2021-06-25 21:40:26",
 			"error_code": "0000",
 			"error_message": "",
-			"comm_code": "SGWGROWINC",
+			"comm_code": "SGW",
 			"member_code": null,
 			"tx_id": "ESP1608032198KBSU",
 			"order_id": "0008032194",

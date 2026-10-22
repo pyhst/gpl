@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(null, null);
+$init = new \PyGPaymentLib\Init(null, null);
 $init->setMerchantKey($_ENV['MPAY_KEY']);
 $init->setMerchantToken($_ENV['MPAY_TOKEN']);
 $init->setPaymentURL($_ENV['MPAY_HOST_URL']);
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['MPAY_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 $init->setReturnURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\MPay($init);
+$vendor = new \PyGPaymentLib\Vendors\MPay($init);
 
 
 
@@ -20,7 +20,7 @@ $vendor = new \Growinc\Payment\Vendors\MPay($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerName('Testing');
 // 	$transaction->setCustomerEmail('testing@email.com');
 // 	$transaction->setCustomerPhone('081212121314');
@@ -72,7 +72,7 @@ $vendor = new \Growinc\Payment\Vendors\MPay($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerName('Testing');
 // 	$transaction->setCustomerEmail('testing@email.com');
 // 	$transaction->setCustomerPhone('081212121314');
@@ -97,7 +97,7 @@ $vendor = new \Growinc\Payment\Vendors\MPay($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerName('Testing');
 // 	$transaction->setCustomerEmail('testing@email.com');
 // 	$transaction->setCustomerPhone('081212121314');
@@ -128,7 +128,7 @@ $vendor = new \Growinc\Payment\Vendors\MPay($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerName('Testing');
 // 	$transaction->setCustomerEmail('testing@email.com');
 // 	$transaction->setCustomerPhone('081212121314');

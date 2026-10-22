@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['FASPAY_MERCHANT_NAME'] . ' : ' . $_ENV['FASPAY_MERCHANT_ID'],
 	$_ENV['FASPAY_USER_ID'] . ' : ' . $_ENV['FASPAY_PASSWORD']
 );
 $init->setRequestURL($_ENV['FASPAY_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\Faspay($init);
+$vendor = new \PyGPaymentLib\Vendors\Faspay($init);
 
 try {
 	$result = $vendor->Inquiry((object) [

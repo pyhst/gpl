@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['XFERS_API_KEY'],
 	$_ENV['XFERS_SECRET_KEY']
 );
 $init->setRequestURL($_ENV['XFERS_HOST_URL']);
-$vendor = new \Growinc\Payment\Vendors\Xfers($init);
+$vendor = new \PyGPaymentLib\Vendors\Xfers($init);
 
 // /**
 //  *
@@ -49,7 +49,7 @@ $vendor = new \Growinc\Payment\Vendors\Xfers($init);
  *
  */
 try {
-	$transaction = new \Growinc\Payment\Transaction();
+	$transaction = new \PyGPaymentLib\Transaction();
 	$transaction->setCustomerBankName('BCA');
 	// $transaction->setCustomerBankAccountName('');
 	$transaction->setCustomerBankAccountNumber('6043425795');
@@ -71,7 +71,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankName('BCA');
 // 	$transaction->setCustomerBankAccountName('MAJU SELARAS KOMPUTER PT');
 // 	$transaction->setCustomerBankAccountNumber('6044222099');

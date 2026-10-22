@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['IBBILLING_MERCHANT_UUID'], null);
+$init = new \PyGPaymentLib\Init($_ENV['IBBILLING_MERCHANT_UUID'], null);
 $init->setPaymentURL($_ENV['IBBILLING_HOST_URL']);
 $init->setRequestURL($_ENV['IBBILLING_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 $init->setReturnURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\IBBilling($init);
+$vendor = new \PyGPaymentLib\Vendors\IBBilling($init);
 
 
 
@@ -53,7 +53,7 @@ $vendor = new \Growinc\Payment\Vendors\IBBilling($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setServiceCode('DISBURSEMENT');
 // 	$transaction->setMerchantID('PGA');
 // 	$transaction->setPaymentType('pg');
@@ -90,7 +90,7 @@ $vendor = new \Growinc\Payment\Vendors\IBBilling($init);
 //  */
 // try {
 // 	$time = time();
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setServiceCode('DISBURSEMENT');
 // 	$transaction->setMerchantID('PGA');
 // 	$transaction->setPaymentType('pg');

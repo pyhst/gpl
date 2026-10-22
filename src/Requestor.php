@@ -1,6 +1,6 @@
 <?php
 
-namespace Growinc\Payment;
+namespace PyGPaymentLib;
 
 class Requestor
 {
@@ -18,7 +18,7 @@ class Requestor
 	protected $dotenv;
 	protected $log;
 
-	public function __construct(\Growinc\Payment\Init $init)
+	public function __construct(\PyGPaymentLib\Init $init)
 	{
 		$this->init = $init;
 		// Dotenv
@@ -42,7 +42,7 @@ class Requestor
 	private static function _GetClient($args)
 	{
 		if (!SELF::$_client) {
-			SELF::$_client = \Growinc\Payment\HttpClient\GuzzleHttpClient::getInstance($args);
+			SELF::$_client = \PyGPaymentLib\HttpClient\GuzzleHttpClient::getInstance($args);
 		}
 		return SELF::$_client;
 	}

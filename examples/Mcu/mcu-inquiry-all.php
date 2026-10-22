@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['MACAU_AGENT_CODE'],
 	$_ENV['MACAU_AGENT_DIVISION']
 );
 $init->setRequestURL($_ENV['MACAU_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\Mcu($init);
+$vendor = new \PyGPaymentLib\Vendors\Mcu($init);
 
 try {
 	$result = $vendor->InquiryAll((object) [

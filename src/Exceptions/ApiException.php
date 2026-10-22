@@ -1,8 +1,8 @@
 <?php
 
-namespace Growinc\Payment\Exceptions;
+namespace PyGPaymentLib\Exceptions;
 
-class ApiException extends \Exception implements \Growinc\Payment\Exceptions\ExceptionInterface
+class ApiException extends \Exception implements \PyGPaymentLib\Exceptions\ExceptionInterface
 {
 
 	protected $error_code;

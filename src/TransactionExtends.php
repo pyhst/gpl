@@ -1,6 +1,6 @@
 <?php
 
-namespace Growinc\Payment;
+namespace PyGPaymentLib;
 
 class TransactionExtends
 {
@@ -28,7 +28,7 @@ class TransactionExtends
 		// espay attr
 		// $this->signature_key = 'ces0bu1jh9qrsakq';
 		// $this->password = 'Y0F,(5EM=#';
-		// $this->comm_code = 'SGWGROWINC';
+		// $this->comm_code = 'SGW';
 		// $this->mode = [
 		// 	'sendinvoice' => 'SENDINVOICE',
 		// 	'checkstatus' => 'CHECKSTATUS',

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['TRANSFORCE_MERCHANT_ID']);
+$init = new \PyGPaymentLib\Init($_ENV['TRANSFORCE_MERCHANT_ID']);
 $init->setPrivateKey($_ENV['TRANSFORCE_MERCHANT_PRIVATE_KEY']);
 $init->setPublicKey($_ENV['TRANSFORCE_MERCHANT_PUBLIC_KEY']);
 $init->setPaymentURL($_ENV['TRANSFORCE_HOST_URL']);
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['TRANSFORCE_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 $init->setReturnURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\Transforce($init);
+$vendor = new \PyGPaymentLib\Vendors\Transforce($init);
 
 
 
@@ -22,7 +22,7 @@ $vendor = new \Growinc\Payment\Vendors\Transforce($init);
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'SecurePayment') {
 	try {
 		$time = time();
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setReferenceNumber($time);
 		$transaction->setAmount(15000);
 		$transaction->setDescription('BILLING1');
@@ -135,7 +135,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'SecurePayment') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'Inquiry') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$result = $vendor->Inquiry((object) [
 			'merchantReferenceNo' => '1758718319',
 		]);

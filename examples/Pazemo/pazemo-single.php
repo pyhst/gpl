@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['PAZEMO_API_KEY'],
 	''
 );
 $init->setPaymentURL($_ENV['PAZEMO_HOST_URL']);
 $init->setRequestURL($_ENV['PAZEMO_HOST_URL']);
-$vendor = new \Growinc\Payment\Vendors\Pazemo($init);
+$vendor = new \PyGPaymentLib\Vendors\Pazemo($init);
 
 // /**
 //  *

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['DUITKU_MERCHANT_ID'],
 	$_ENV['DUITKU_API_KEY']
 );
@@ -11,7 +11,7 @@ $init->setParserURL($_ENV['DUITKU_PARSER']);
 $init->setCallbackURL($_ENV['DUITKU_CALLBACK_URL']);
 $init->setReturnURL($_ENV['DUITKU_RETURN_URL']);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setCustomerName('Testing');
 $transaction->setCustomerEmail('testing@email.com');
 $transaction->setCustomerPhone('6281213141516');
@@ -71,7 +71,7 @@ $transaction->setCardExpYear('22');
 $transaction->setCardCvv('123');
 */
 
-$vendor = new \Growinc\Payment\Vendors\Duitku($init);
+$vendor = new \PyGPaymentLib\Vendors\Duitku($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction); // return payment URL

@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['ODEO_CLIENT_ID'], $_ENV['ODEO_CLIENT_SECRET']);
+$init = new \PyGPaymentLib\Init($_ENV['ODEO_CLIENT_ID'], $_ENV['ODEO_CLIENT_SECRET']);
 $init->setPaymentURL($_ENV['ODEO_HOST_URL']);
 $init->setRequestURL($_ENV['ODEO_HOST_URL']);
 $init->setSigningKey($_ENV['ODEO_SIGNIN_KEY']);
 
-$vendor = new \Growinc\Payment\Vendors\Odeo($init);
+$vendor = new \PyGPaymentLib\Vendors\Odeo($init);
 
 
 
@@ -43,7 +43,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setAmount(10000);
 // 	$transaction->setPaymentMethod('qris');
 // 	$transaction->setPaymentChannel('');

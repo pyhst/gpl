@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['GEMPAY_MERCHANT_ID'], $_ENV['GEMPAY_SECRET']);
+$init = new \PyGPaymentLib\Init($_ENV['GEMPAY_MERCHANT_ID'], $_ENV['GEMPAY_SECRET']);
 $init->setParam('GEMPAY_PROJECT_NO', $_ENV['GEMPAY_PROJECT_NO']);
 $init->setRequestURL($_ENV['GEMPAY_HOST_URL_DISBURSEMENT']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\GemPay($init);
+$vendor = new \PyGPaymentLib\Vendors\GemPay($init);
 
 
 
@@ -43,7 +43,7 @@ $vendor = new \Growinc\Payment\Vendors\GemPay($init);
 //  */
 // try {
 // 	$time = time();
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	// $transaction->setRequestID($time);
 // 	$transaction->setReferenceNumber($time);
 // 	$transaction->setAmount('10000');
@@ -86,7 +86,7 @@ $vendor = new \Growinc\Payment\Vendors\GemPay($init);
 //  */
 // try {
 // 	$time = time();
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setOrderID('240521130455ZGLJ');
 // 	$transaction->setDescription('TEST-TRANSFER');
 // 	$transaction->setReqDateTime(date('Y-m-d H:i:s', $time));

@@ -1,6 +1,6 @@
 <?php
 
-namespace Growinc\Payment\Exceptions;
+namespace PyGPaymentLib\Exceptions;
 
 class InvalidArgumentException extends \InvalidArgumentException
 {

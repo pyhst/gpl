@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['FASPAY_MERCHANT_NAME'] . ':' . $_ENV['FASPAY_MERCHANT_ID'],
 	$_ENV['FASPAY_USER_ID'] . ' : ' . $_ENV['FASPAY_PASSWORD']
 );
 
-$vendor = new \Growinc\Payment\Vendors\Faspay($init);
+$vendor = new \PyGPaymentLib\Vendors\Faspay($init);
 
 $callback_data = '
 	{

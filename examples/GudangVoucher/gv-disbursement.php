@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['NEW_GV_CLIENT_ID']
 );
 $init->setRequestURL($_ENV['NEW_GV_HOST_URL']);
@@ -12,7 +12,7 @@ $init->setParams([
 	'gv_connect_key' => $_ENV['NEW_GV_CONNECT_KEY'],
 	'gv_private_key' => $_ENV['NEW_GV_PRIVATE_KEY'],
 ]);
-$vendor = new \Growinc\Payment\Vendors\GudangVoucher($init);
+$vendor = new \PyGPaymentLib\Vendors\GudangVoucher($init);
 
 
 
@@ -100,7 +100,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankCode('009');
 // 	$transaction->setCustomerBankAccountNumber('5787811122');
 // 	$transaction->setAmount(15000);
@@ -135,7 +135,7 @@ try {
 //  */
 // try {
 // 	$time = time();
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankCode('009');
 // 	$transaction->setCustomerBankAccountNumber('5787811122');
 // 	$transaction->setAmount(12000);
@@ -170,7 +170,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setReferenceNumber('OTE20240508155840');
 // 	$transaction->setExternalID('20240508155830');
 // 	$transaction->setReqDateTime('2024-05-08T15:58:30+07:00');

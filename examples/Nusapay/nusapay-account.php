@@ -2,11 +2,11 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['NUSAPAY_CLIENT_ID'],
 	$_ENV['NUSAPAY_CLIENT_SECRET']
 );
-$vendor = new \Growinc\Payment\Vendors\Nusapay($init);
+$vendor = new \PyGPaymentLib\Vendors\Nusapay($init);
 
 // /**
 //  *

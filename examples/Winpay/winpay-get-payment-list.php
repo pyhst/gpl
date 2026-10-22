@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['WINPAY_PRIVATE_KEY_1'],
 	$_ENV['WINPAY_PRIVATE_KEY_2']
 );
 $init->setMerchantKey($_ENV['WINPAY_MERCHANT_KEY']);
 $init->setRequestURL($_ENV['WINPAY_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\Winpay($init);
+$vendor = new \PyGPaymentLib\Vendors\Winpay($init);
 
 try {
 	$result = $vendor->InquiryPaymentChannel();

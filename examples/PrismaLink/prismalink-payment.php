@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['PLINK_API_KEY'],
 	$_ENV['PLINK_SECRET_KEY']
 );
@@ -12,9 +12,9 @@ $init->setPaymentURL($_ENV['PLINK_HOST_URL']);
 // $init->setBackendURL('https://www.prismalink.co.id/'); // backend_callback_url
 $init->setResponseUrl($_ENV['PLINK_REDIRECT_URL']); // frontend_callback_url
 $init->setBackendURL($_ENV['PLINK_CALLBACK_URL']); // backend_callback_url
-$vendor = new \Growinc\Payment\Vendors\PrismaLink($init);
+$vendor = new \PyGPaymentLib\Vendors\PrismaLink($init);
 //
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setInvoiceNo('TEST-INV-' . time());
 $transaction->setCustomerUserID('123');
 $transaction->setCustomerName('testing');

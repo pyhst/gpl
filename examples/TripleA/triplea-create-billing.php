@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(null, null);
+$init = new \PyGPaymentLib\Init(null, null);
 $init->setMID($_ENV['TRIPLEA_CLIENT_ID']);
 $init->setSecret($_ENV['TRIPLEA_CLIENT_SECRET']);
 $init->setMerchantKey($_ENV['TRIPLEA_MERCHANT_KEY']);
@@ -11,7 +11,7 @@ $init->setRequestURL($_ENV['TRIPLEA_HOST_URL']);
 $init->setCallbackURL($_ENV['TRIPLEA_WEBHOOK_URL']);
 $init->setReturnURL($_ENV['TRIPLEA_WEBHOOK_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\TripleA($init);
+$vendor = new \PyGPaymentLib\Vendors\TripleA($init);
 
 
 /*------------------------------v BEGIN OF Auth v------------------------------------------------------------ */
@@ -23,7 +23,7 @@ $vendor = new \Growinc\Payment\Vendors\TripleA($init);
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetToken') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$result = $vendor->GetToken($transaction);
 		print_r($result);
 		/* // Success
@@ -44,7 +44,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetToken') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetCurrencies') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('FIXED_RATE', 'true');
 		$result = $vendor->GetCurrencies($transaction);
 		extract($result);
@@ -80,7 +80,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetCurrencies') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetCurrenciesAlt') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$result = $vendor->GetCurrenciesAlt($transaction);
 		extract($result);
 		print_r($response);
@@ -165,7 +165,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetCurrenciesAlt') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetCheckedCurrencies') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$result = $vendor->GetCheckedCurrencies($transaction);
 		extract($result);
 		print_r($response);
@@ -200,7 +200,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetCheckedCurrencies') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetMinPaymentAmount') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('CURRENCY_FROM', 'USDTERC20');
 		$transaction->setParam('CURRENCY_TO', 'IDR');
 		$transaction->setParam('FIAT_EQUIVALENT', 'IDR');
@@ -236,7 +236,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetMinPaymentAmount') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetEstimatedPrice') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('CURRENCY_FROM', 'IDR');
 		$transaction->setParam('CURRENCY_TO', 'USDTERC20');
 		$transaction->setParam('AMOUNT', 50000);
@@ -271,7 +271,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetEstimatedPrice') {
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'SecurePayment') {
 	try {
 		$time = time();
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('PRICE_CURRENCY', 'IDR');
 		$transaction->setParam('PAY_CURRENCY', 'USDTERC20');
 		$transaction->setAmount(15000);

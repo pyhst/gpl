@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['GV_MERCHANT_ID'],
 	$_ENV['GV_MERCHANT_KEY']
 );
 
-$vendor = new \Growinc\Payment\Vendors\GudangVoucher($init);
+$vendor = new \PyGPaymentLib\Vendors\GudangVoucher($init);
 
 // $callback_data = '{"data":"<trans_doc><merchant_id>878<\/merchant_id><merchant>VPAY<\/merchant><reference>8782021031818150440<\/reference><voucher_code>202103182554031616065898<\/voucher_code><amount currency=\"IDR\" nominal=\"14400\"\/><purpose>Tr Mr Dummy<\/purpose><custom>202103182554031616065898<\/custom><status>SUCCESS<\/status><\/trans_doc>"}';
 // $callback_data = (object) json_decode($callback_data);

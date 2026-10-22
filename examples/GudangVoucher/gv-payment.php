@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['GV_MERCHANT_ID'],
 	$_ENV['GV_MERCHANT_KEY']
 );
@@ -10,7 +10,7 @@ $init->setPaymentURL($_ENV['GV_PAYMENT_URL']);
 $init->setCallbackURL($_ENV['GV_CALLBACK_URL']);
 $init->setReturnURL($_ENV['GV_RETURN_URL']);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setCustomerName('LOREM IPSUM');
 $transaction->setCustomerEmail('lorem@ipsum.com');
 $transaction->setCustomerPhone('088812345678');
@@ -41,7 +41,7 @@ $transaction->setDescription('Pembelian Elektronik');
 // $transaction->setPaymentMethod('cstore,alfamart');
 $transaction->setPaymentMethod(''); // use blank to show all option at once
 
-$vendor = new \Growinc\Payment\Vendors\GudangVoucher($init);
+$vendor = new \PyGPaymentLib\Vendors\GudangVoucher($init);
 
 try {
 	// $result = $vendor->RedirectPayment($transaction);

@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['XENDIT_API_KEY'],
 	$_ENV['XENDIT_PUBLIC_KEY']
 );
 $init->setCallbackURL($_SERVER['REQUEST_URI']);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 
 if (isset($_REQUEST['tokenData'])) {
 	exit($_REQUEST['tokenData']);
@@ -28,7 +28,7 @@ $transaction->setCardExpYear($_REQUEST['setCardExpYear'] ?? '2021');
 // $transaction->setCardCVV($_REQUEST['setCardCVV'] ?? '831');
 $transaction->setCardCVV($_REQUEST['setCardCVV'] ?? '563');
 
-$vendor = new \Growinc\Payment\Vendors\Xendit($init);
+$vendor = new \PyGPaymentLib\Vendors\Xendit($init);
 
 try {
 	$enccarddata = $vendor->EncryptCardData($transaction);

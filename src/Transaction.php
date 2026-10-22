@@ -1,6 +1,6 @@
 <?php
 
-namespace Growinc\Payment;
+namespace PyGPaymentLib;
 
 class Transaction extends TransactionExtends
 {

@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['DUITKU_MERCHANT_ID'],
 	$_ENV['DUITKU_API_KEY']
 );
 $init->setRequestURL($_ENV['DUITKU_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\Duitku($init);
+$vendor = new \PyGPaymentLib\Vendors\Duitku($init);
 
 // try {
 	$result = $vendor->Inquiry((object) [

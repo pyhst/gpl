@@ -1,9 +1,9 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
 class Pazemo extends Requestor implements VendorInterface
 {
@@ -483,7 +483,7 @@ class Pazemo extends Requestor implements VendorInterface
 
 
 
-	public function AccountInquiry(\Growinc\Payment\Transaction $transaction)
+	public function AccountInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		// try {
 		// 	$this->request['data'] = [
@@ -777,12 +777,12 @@ class Pazemo extends Requestor implements VendorInterface
 	 *
 	 */
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$this->transaction = $transaction;

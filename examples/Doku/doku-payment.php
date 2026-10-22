@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['DOKU_STORE_ID'],
 	$_ENV['DOKU_SHARED_KEY']
 );
 $init->setPaymentURL($_ENV['DOKU_HOST_URL']);
 $init->setParserURL($_ENV['DOKU_PARSER']);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setCustomerName('Lorem Ipsum');
 $transaction->setCustomerEmail('lorem@ipsum.com');
 $transaction->setCustomerPhone('081212345678');
@@ -38,7 +38,7 @@ $transaction->setPaymentMethod('va,permata');
 // $transaction->setPaymentMethod('va,cimb_niaga');
 // $transaction->setPaymentMethod('va,atm_bersama');
 
-$vendor = new \Growinc\Payment\Vendors\Doku($init);
+$vendor = new \PyGPaymentLib\Vendors\Doku($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction);

@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['TCTP_MID'],
 	$_ENV['TCTP_SECRET_KEY']
 );
 
-$vendor = new \Growinc\Payment\Vendors\TCTP($init);
+$vendor = new \PyGPaymentLib\Vendors\TCTP($init);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 
 $payment_token = 'kSAops9Zwhos8hSTSeLTUR+tyAgvRuHaDlsbYFjBq/YD+2OHoRF1EY9XnCPtZpjrDV3iB84FoJEQv21j1H+YGWKF16pVq5LtSz9aefuQJ5p+PSG6xBBJPnMSu9LenTJu';
 
@@ -33,10 +33,6 @@ try {
 					"paymentToken": "kSAops9Zwhos8hSTSeLTUfltbZLm2Z\/+WNY4PRQyyQ7N+HK4Y9I+mTfRiYSS7Y7czz9ZVDFu8duCksVtIUc17+w2AE\/DHGR9zSQLrwgQVH8Z8KCiGSolxcgjQ886oe\/o",
 					"merchantDetails": {
 						"id": "360360000000200",
-						"name": "PT. Growinc Teknologi Indonesia",
-						"address": "Foresta Business Loft 5\n\nLengkong Kulon, Pagedangan, Tangerang, Banten",
-						"email": "info@growinc.co.id",
-						"logoUrl": "https:\/\/pgw-static-sandbox.s3.amazonaws.com\/images\/merchantlogo\/360360000000200.png",
 						"bannerUrl": null
 					},
 					"transactionDetails": {

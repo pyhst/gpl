@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['XENDIT_API_KEY'],
 	$_ENV['XENDIT_PUBLIC_KEY']
 );
@@ -12,7 +12,7 @@ $init->setCallbackURL($_ENV['XENDIT_CALLBACK_URL']);
 $init->setReturnURL($_ENV['XENDIT_RETURN_URL']);
 /*------------------------------ A A A End of Required by EWALLET and QRIS ---------- */
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setCustomerName('testing');
 $transaction->setCustomerEmail('testing@gmail.com');
 $transaction->setCustomerPhone('+6288812131415');
@@ -52,7 +52,7 @@ $transaction->setPaymentMethod('bank_transfer,mandiri');
 // $transaction->setPaymentMethod('cstore,indomaret');
 // $transaction->setPaymentMethod('cstore,alfamart');
 
-$vendor = new \Growinc\Payment\Vendors\Xendit($init);
+$vendor = new \PyGPaymentLib\Vendors\Xendit($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction); // return payment URL

@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['MIDTRANS_CLIENT_KEY'],
 	$_ENV['MIDTRANS_SERVER_KEY']
 );
 $init->setPaymentURL($_ENV['MIDTRANS_HOST_URL']);
 $init->setCallbackURL($_ENV['MIDTRANS_CALLBACK_URL']);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setCustomerName('testing');
 $transaction->setCustomerEmail('testing@gmail.com');
 $transaction->setCustomerPhone('088812131415');
@@ -73,7 +73,7 @@ $transaction->setPaymentMethod('bank_transfer,bni');
 // midtrans only for bca_klikbca
 // $transaction->setCustomerUserID('midtrans1012');
 
-$vendor = new \Growinc\Payment\Vendors\Midtrans($init);
+$vendor = new \PyGPaymentLib\Vendors\Midtrans($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction); // return payment URL

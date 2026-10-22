@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['MAWARPAY_MERCHANT_ID']);
+$init = new \PyGPaymentLib\Init($_ENV['MAWARPAY_MERCHANT_ID']);
 $init->setPrivateKey($_ENV['MAWARPAY_MERCHANT_PRIVATE_KEY']);
 $init->setPublicKey($_ENV['MAWARPAY_PUBLIC_KEY']);
 $init->setPaymentURL($_ENV['MAWARPAY_HOST_URL']);
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['MAWARPAY_HOST_URL']);
 $init->setCallbackURL($_ENV['MAWARPAY_WEBHOOK_URL']);
 $init->setReturnURL($_ENV['MAWARPAY_WEBHOOK_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\MawarPay($init);
+$vendor = new \PyGPaymentLib\Vendors\MawarPay($init);
 
 
 /**
@@ -49,7 +49,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'CheckBalance') {
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'BankAccountInquiry') {
 	try {
 		$time = time();
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setReferenceNumber($time);
 		$transaction->setAmount(10000);
 		$transaction->setCustomerBankCode('CENAIDJA');
@@ -77,7 +77,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'BankAccountInquiry') {
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'OnlineTransferExec') {
 	try {
 		$time = time();
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setReferenceNumber(date('YmdHis', $time));
 		$transaction->setCustomerBankCode('BNINIDJA');
 		$transaction->setCustomerBankAccountNumber('7700173383');
@@ -101,7 +101,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'OnlineTransferExec') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'OnlineTransferCheckTransfer') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setAmount(10000);
 		$result = $vendor->OnlineTransferCheckTransfer((object) [
 			'merchantReferenceNo' => '20250924195506',

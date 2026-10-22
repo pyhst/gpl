@@ -2,11 +2,11 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['MOTIONPAY_DISBURSEMENT_CLIENT_KEY'], $_ENV['MOTIONPAY_DISBURSEMENT_SERVER_KEY']);
+$init = new \PyGPaymentLib\Init($_ENV['MOTIONPAY_DISBURSEMENT_CLIENT_KEY'], $_ENV['MOTIONPAY_DISBURSEMENT_SERVER_KEY']);
 $init->setPaymentURL($_ENV['MOTIONPAY_DISBURSEMENT_HOST_URL']);
 $init->setRequestURL($_ENV['MOTIONPAY_DISBURSEMENT_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\MotionPay($init);
+$vendor = new \PyGPaymentLib\Vendors\MotionPay($init);
 
 
 
@@ -63,7 +63,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankAccountNumber('6044222099');
 // 	$transaction->setCustomerBankCode('014');
 // 	$transaction->setOrderID(time());
@@ -92,7 +92,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankCode('014');
 // 	$transaction->setCustomerBankAccountNumber('6044222099');
 // 	$transaction->setCustomerName('TESTER');

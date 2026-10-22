@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['TCTP_MID'],
 	$_ENV['TCTP_SECRET_KEY']
 );
@@ -10,11 +10,11 @@ $init->setRequestURL($_ENV['TCTP_HOST_URL']);
 $init->setCallbackURL($_ENV['TCTP_CALLBACK_URL']);
 $init->setReturnURL($_ENV['TCTP_RETURN_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\TCTP($init);
+$vendor = new \PyGPaymentLib\Vendors\TCTP($init);
 
 $invoice_no = time();
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setInvoiceNo($invoice_no);
 $transaction->setDescription('PAYMENT FOR ' . $invoice_no);
 $transaction->setAmount(rand(50000, 1000000));

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['DANA_MERCHANT_ID']
 );
 $init->setRequestURL($_ENV['DANA_HOST_URL']);
@@ -12,7 +12,7 @@ $init->setParams([
 	'private_key' => $_ENV['DANA_PRIVATE_KEY'],
 	'merchant_id' => $_ENV['DANA_MERCHANT_ID'],
 ]);
-$vendor = new \Growinc\Payment\Vendors\Dana($init);
+$vendor = new \PyGPaymentLib\Vendors\Dana($init);
 
 
 
@@ -120,7 +120,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankCode('009');
 // 	$transaction->setCustomerBankAccountNumber('5787811122');
 // 	$transaction->setAmount(10000);
@@ -172,7 +172,7 @@ try {
 //  */
 // try {
 // 	$time = time();
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankCode('009');
 // 	$transaction->setCustomerBankAccountNumber('5787811122');
 // 	$transaction->setAmount(10000);
@@ -210,7 +210,7 @@ try {
  *
  */
 try {
-	$transaction = new \Growinc\Payment\Transaction();
+	$transaction = new \PyGPaymentLib\Transaction();
 	$transaction->setCustomerBankCode('009');
 	$transaction->setCustomerBankAccountNumber('5787811122');
 	$transaction->setAmount(10000);
@@ -262,7 +262,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerPhone('628127416027');
 // 	$transaction->setAmount(15000);
 // 	$transaction->setOrderID(time());
@@ -285,7 +285,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerPhone('628127416027');
 // 	$transaction->setAmount(15000);
 // 	$transaction->setOrderID(time());
@@ -310,7 +310,7 @@ try {
 // try {
 // 	$content = (object) json_decode($result['response']['content']);
 // 	//
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	// $transaction->setTransactionID($content->data->referenceNo);
 // 	// $transaction->setReferenceNumber($content->data->referenceNumber);
 // 	$transaction->setTransactionID('1668489782');

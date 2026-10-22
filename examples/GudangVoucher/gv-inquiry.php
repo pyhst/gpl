@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['GV_MERCHANT_ID'],
 	$_ENV['GV_MERCHANT_KEY']
 );
 $init->setRequestURL($_ENV['GV_INQUIRY_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\GudangVoucher($init);
+$vendor = new \PyGPaymentLib\Vendors\GudangVoucher($init);
 
 try {
 	$result = $vendor->Inquiry((object) [

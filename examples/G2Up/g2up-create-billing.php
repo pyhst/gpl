@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['G2UP_APP_KEY'], $_ENV['G2UP_SECRET_KEY']);
+$init = new \PyGPaymentLib\Init($_ENV['G2UP_APP_KEY'], $_ENV['G2UP_SECRET_KEY']);
 $init->setPaymentURL($_ENV['G2UP_HOST_URL']);
 $init->setRequestURL($_ENV['G2UP_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\G2Up($init);
+$vendor = new \PyGPaymentLib\Vendors\G2Up($init);
 
 
 
@@ -17,7 +17,7 @@ $vendor = new \Growinc\Payment\Vendors\G2Up($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setAmount(15000);
 // 	$transaction->setReferenceNumber(time());
 // 	$transaction->setCustomerID('TESTER');

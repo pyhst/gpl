@@ -1,9 +1,9 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
 class Xendit extends Requestor implements VendorInterface
 {
@@ -877,7 +877,7 @@ class Xendit extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function AccountInquiry(\Growinc\Payment\Transaction $transaction)
+	public function AccountInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
@@ -934,7 +934,7 @@ class Xendit extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function DoTransfer(\Growinc\Payment\Transaction $transaction)
+	public function DoTransfer(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$this->request['data'] = [
@@ -1068,12 +1068,12 @@ class Xendit extends Requestor implements VendorInterface
 	 *
 	 */
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$this->transaction = $transaction;
@@ -1365,7 +1365,7 @@ class Xendit extends Requestor implements VendorInterface
 						"external_id": "0008177386",
 						"amount": null,
 						"qr_string": "00020101021126660014ID.LINKAJA.WWW011893600911002411480002152004230411480010303UME51450015ID.OR.GPNQR.WWW02150000000000000000303UME520454995802ID5920Placeholder merchant6007Jakarta610612345662190715fhBNl5rSWmgMfwV53033606304F35B",
-						"callback_url": "https://ibank.growinc.dev/oanwef4851ashrb/pg/dk/redapi_result",
+						"callback_url": "https://bankdev/oanwef4851ashrb/pg/dk/redapi_result",
 						"type": "STATIC",
 						"status": "ACTIVE",
 						"created": "2020-12-17T03:56:29.685Z",
@@ -1672,7 +1672,7 @@ class Xendit extends Requestor implements VendorInterface
 		// Inapplicable
 	}
 
-	public function EncryptCardData(\Growinc\Payment\Transaction $transaction)
+	public function EncryptCardData(\PyGPaymentLib\Transaction $transaction)
 	{
 		if (isset($_POST['submit']) && !empty($_POST['submit'])) {
 			echo $_POST['encryptedCardInfo'];

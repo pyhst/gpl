@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(null, null);
+$init = new \PyGPaymentLib\Init(null, null);
 $init->setMerchantKey($_ENV['CHRONOS_KEY']);
 $init->setMerchantToken($_ENV['CHRONOS_TOKEN']);
 $init->setPaymentURL($_ENV['CHRONOS_HOST_URL']);
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['CHRONOS_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 $init->setReturnURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\Chronos($init);
+$vendor = new \PyGPaymentLib\Vendors\Chronos($init);
 
 
 
@@ -20,7 +20,7 @@ $vendor = new \Growinc\Payment\Vendors\Chronos($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerName('Testing');
 // 	$transaction->setCustomerPhone('081212121314');
 // 	$transaction->setAmount(10000);

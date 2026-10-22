@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['IBBV2_EMAIL'], $_ENV['IBBV2_PASSWORD']);
+$init = new \PyGPaymentLib\Init($_ENV['IBBV2_EMAIL'], $_ENV['IBBV2_PASSWORD']);
 $init->setMerchantKey($_ENV['IBBV2_MERCHANT_UUID']);
 $init->setPaymentURL($_ENV['IBBV2_HOST_URL']);
 $init->setRequestURL($_ENV['IBBV2_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 $init->setReturnURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\IBBv2($init);
+$vendor = new \PyGPaymentLib\Vendors\IBBv2($init);
 
 
 
@@ -67,7 +67,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'CheckBalance') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'BankAccountInquiry') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('SERVICE_CODE', $_ENV['IBBV2_DISBURSEMENT_SERVICE_CODE']);
 		$transaction->setCustomerBankCode('014');
 		$transaction->setCustomerBankAccountNumber('5020359309');
@@ -91,7 +91,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'BankAccountInquiry') {
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'OnlineTransferExec') {
 	try {
 		$time = time();
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('SERVICE_CODE', $_ENV['IBBV2_DISBURSEMENT_SERVICE_CODE']);
 		$transaction->setReferenceNumber('TF' . $time . rand(1000,9999));
 		$transaction->setRemark('TF' . $time . rand(1000,9999));

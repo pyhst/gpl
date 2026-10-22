@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['NUSAPAY_CLIENT_ID'],
 	$_ENV['NUSAPAY_CLIENT_SECRET']
 );
@@ -11,7 +11,7 @@ $init->setParams([
 	'bank' => 'cimb',
 	'accnum' => '860008882900',
 ]);
-$vendor = new \Growinc\Payment\Vendors\Nusapay($init);
+$vendor = new \PyGPaymentLib\Vendors\Nusapay($init);
 
 // /**
 //  *
@@ -51,7 +51,7 @@ $vendor = new \Growinc\Payment\Vendors\Nusapay($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankName('022');
 // 	$transaction->setCustomerBankAccountNumber('9639081212121314');
 // 	$result = $vendor->InterbankTransferInquiry($transaction);
@@ -70,7 +70,7 @@ $vendor = new \Growinc\Payment\Vendors\Nusapay($init);
  *
  */
 try {
-	$transaction = new \Growinc\Payment\Transaction();
+	$transaction = new \PyGPaymentLib\Transaction();
 	$transaction->setCustomerBankName('022');
 	$transaction->setCustomerBankAccountNumber('9639081212121314');
 	$transaction->setAmount(1000);
@@ -110,7 +110,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setReferenceNumber('1664552912');
 // 	$transaction->setReqDateTime('20220930');
 // 	$transaction->setPaymentChannel('TX');

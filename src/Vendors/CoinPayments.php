@@ -1,11 +1,11 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
-use Growinc\Payment\Helper;
+use PyGPaymentLib\Helper;
 
 class CoinPayments extends Requestor implements VendorInterface
 {
@@ -47,7 +47,7 @@ class CoinPayments extends Requestor implements VendorInterface
 
 	/*------------------------------v BEGIN OF Currencies v------------------------------------------------------------ */
 
-	public function GetCurrencies(\Growinc\Payment\Transaction $transaction)
+	public function GetCurrencies(\PyGPaymentLib\Transaction $transaction)
 	{
 		$time = time();
 		$timestamp = gmdate('Y-m-d\TH:i:s', $time);
@@ -304,7 +304,7 @@ class CoinPayments extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function GetMerchantCurrencies(\Growinc\Payment\Transaction $transaction)
+	public function GetMerchantCurrencies(\PyGPaymentLib\Transaction $transaction)
 	{
 		$time = time();
 		$timestamp = gmdate('Y-m-d\TH:i:s', $time);
@@ -396,7 +396,7 @@ class CoinPayments extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function GetConversionPairs(\Growinc\Payment\Transaction $transaction)
+	public function GetConversionPairs(\PyGPaymentLib\Transaction $transaction)
 	{
 		$time = time();
 		$timestamp = gmdate('Y-m-d\TH:i:s', $time);
@@ -464,7 +464,7 @@ class CoinPayments extends Requestor implements VendorInterface
 
 	/*------------------------------v BEGIN OF Rates v------------------------------------------------------------ */
 
-	public function GetExchangeRates(\Growinc\Payment\Transaction $transaction)
+	public function GetExchangeRates(\PyGPaymentLib\Transaction $transaction)
 	{
 		$time = time();
 		$timestamp = gmdate('Y-m-d\TH:i:s', $time);
@@ -553,7 +553,7 @@ class CoinPayments extends Requestor implements VendorInterface
 
 	/*------------------------------v BEGIN OF Fees v------------------------------------------------------------ */
 
-	public function GetBlockchainFees(\Growinc\Payment\Transaction $transaction)
+	public function GetBlockchainFees(\PyGPaymentLib\Transaction $transaction)
 	{
 		$time = time();
 		$timestamp = gmdate('Y-m-d\TH:i:s', $time);
@@ -607,7 +607,7 @@ class CoinPayments extends Requestor implements VendorInterface
 
 	/*------------------------------v BEGIN OF Wallets v------------------------------------------------------------ */
 
-	public function GetWallets(\Growinc\Payment\Transaction $transaction)
+	public function GetWallets(\PyGPaymentLib\Transaction $transaction)
 	{
 		$time = time();
 		$timestamp = gmdate('Y-m-d\TH:i:s', $time);
@@ -654,7 +654,7 @@ class CoinPayments extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function CreateWallet(\Growinc\Payment\Transaction $transaction)
+	public function CreateWallet(\PyGPaymentLib\Transaction $transaction)
 	{
 		$time = time();
 		$timestamp = gmdate('Y-m-d\TH:i:s', $time);
@@ -714,12 +714,12 @@ class CoinPayments extends Requestor implements VendorInterface
 	|
 	///////////////////////////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\ ///////////////////////*/
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Not applicable
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		$time = time();
 		$timestamp = gmdate('Y-m-d\TH:i:s', $time);
@@ -1142,12 +1142,12 @@ class CoinPayments extends Requestor implements VendorInterface
 		// Inapplicable
 	}
 
-	public function BankAccountInquiry(\Growinc\Payment\Transaction $transaction)
+	public function BankAccountInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
 
-	public function OnlineTransferExec(\Growinc\Payment\Transaction $transaction)
+	public function OnlineTransferExec(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}

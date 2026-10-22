@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['XFERS_API_KEY'],
 	$_ENV['XFERS_SECRET_KEY']
 );
 
-$vendor = new \Growinc\Payment\Vendors\Xfers($init);
+$vendor = new \PyGPaymentLib\Vendors\Xfers($init);
 
 try {
 	$raw_data = file_get_contents("php://input");

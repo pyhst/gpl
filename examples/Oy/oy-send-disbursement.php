@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['OY_USERNAME'], $_ENV['OY_API_KEY']);
+$init = new \PyGPaymentLib\Init($_ENV['OY_USERNAME'], $_ENV['OY_API_KEY']);
 $init->setPaymentURL($_ENV['OY_HOST_URL']);
 $init->setRequestURL($_ENV['OY_HOST_URL']);
 $init->setCallbackURL($_ENV['OY_CALLBACK_URL']);
 $init->setReturnURL($_ENV['OY_RETURN_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\Oy($init);
+$vendor = new \PyGPaymentLib\Vendors\Oy($init);
 
 
 
@@ -49,7 +49,7 @@ $vendor = new \Growinc\Payment\Vendors\Oy($init);
  *
  */
 try {
-	$transaction = new \Growinc\Payment\Transaction();
+	$transaction = new \PyGPaymentLib\Transaction();
 	$transaction->setCustomerBankCode('014');
 	$transaction->setCustomerBankAccountNumber('6044222099');
 	$result = $vendor->BankAccountInquiry($transaction);
@@ -80,7 +80,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setCustomerBankCode('011');
 // 	$transaction->setCustomerBankAccountNumber('7700173383');
 // 	$transaction->setAmount(10500);

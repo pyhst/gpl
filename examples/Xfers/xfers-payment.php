@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['XFERS_API_KEY'],
 	$_ENV['XFERS_SECRET_KEY']
 );
 $init->setPaymentURL($_ENV['XFERS_HOST_URL']);
 $init->setReturnURL($_ENV['XFERS_RETURN_URL']);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setInvoiceNo('INV-' . time());
 $transaction->setCustomerName('testing');
 $transaction->setCustomerEmail('testing@gmail.com');
@@ -41,7 +41,7 @@ $transaction->setPaymentMethod('va,BRI');
 //
 // $transaction->setPaymentMethod('ewallet,shopee');
 
-$vendor = new \Growinc\Payment\Vendors\Xfers($init);
+$vendor = new \PyGPaymentLib\Vendors\Xfers($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction);

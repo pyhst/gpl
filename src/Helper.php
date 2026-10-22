@@ -1,8 +1,8 @@
 <?php
 
-namespace Growinc\Payment;
+namespace PyGPaymentLib;
 
-use Growinc\Payment\Exceptions\InvalidArgumentException;
+use PyGPaymentLib\Exceptions\InvalidArgumentException;
 
 trait Helper
 {

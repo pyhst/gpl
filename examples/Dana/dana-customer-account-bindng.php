@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['DANA_MERCHANT_ID']
 );
 $init->setRequestURL($_ENV['DANA_HOST_URL']);
@@ -11,7 +11,7 @@ $init->setParams([
 	'client_secret' => $_ENV['DANA_CLIENT_SECRET'],
 	'private_key' => $_ENV['DANA_PRIVATE_KEY'],
 ]);
-$vendor = new \Growinc\Payment\Vendors\Dana($init);
+$vendor = new \PyGPaymentLib\Vendors\Dana($init);
 
 
 /**

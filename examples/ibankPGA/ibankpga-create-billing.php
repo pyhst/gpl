@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['IBANK_PGA_UUID'],
 	$_ENV['IBANK_PGA_SECRET_KEY'],
 );
@@ -11,7 +11,7 @@ $init->setRequestURL($_ENV['IBANK_PGA_HOST_URL']);
 $init->setParams([
 	'service_code' => $_ENV['IBANK_PGA_SERVICE_CODE'],
 ]);
-$vendor = new \Growinc\Payment\Vendors\ibankPGA($init);
+$vendor = new \PyGPaymentLib\Vendors\ibankPGA($init);
 
 
 
@@ -20,7 +20,7 @@ $vendor = new \Growinc\Payment\Vendors\ibankPGA($init);
  * Create billing
  *
  */
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setPaymentMethod('qris');
 $transaction->setServiceCode('NSIQRIS');
 // $transaction->setInvoiceNo(time()); // Optional

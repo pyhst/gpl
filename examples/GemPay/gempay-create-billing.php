@@ -2,13 +2,13 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['GEMPAY_MERCHANT_ID'], $_ENV['GEMPAY_SECRET']);
+$init = new \PyGPaymentLib\Init($_ENV['GEMPAY_MERCHANT_ID'], $_ENV['GEMPAY_SECRET']);
 $init->setParam('GEMPAY_PROJECT_NO', $_ENV['GEMPAY_PROJECT_NO']);
 $init->setPaymentURL($_ENV['GEMPAY_HOST_URL']);
 $init->setRequestURL($_ENV['GEMPAY_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\GemPay($init);
+$vendor = new \PyGPaymentLib\Vendors\GemPay($init);
 
 
 
@@ -18,7 +18,7 @@ $vendor = new \Growinc\Payment\Vendors\GemPay($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setAmount(15000);
 // 	$transaction->setReferenceNumber(time());
 // 	$transaction->setDescription('BILLING1');

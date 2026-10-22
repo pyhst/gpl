@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['TCTP_MID'],
 	$_ENV['TCTP_SECRET_KEY']
 );
 
-$vendor = new \Growinc\Payment\Vendors\TCTP($init);
+$vendor = new \PyGPaymentLib\Vendors\TCTP($init);
 
 $payment_token = 'kSAops9Zwhos8hSTSeLTUeewPxlj0L9SBSDFG5q+NfL4R+6NMcBFClkhmhHtgYIOh3FQltsT5zStIxm0njenafc3pWL0PTjzQVxbZ+fxfn9yafTj43cxx1sip/WVaSaG';
 $invoice_no = '1606907489';

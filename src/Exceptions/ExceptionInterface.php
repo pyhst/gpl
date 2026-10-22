@@ -1,6 +1,6 @@
 <?php
 
-namespace Growinc\Payment\Exceptions;
+namespace PyGPaymentLib\Exceptions;
 
 interface ExceptionInterface extends \Throwable
 {

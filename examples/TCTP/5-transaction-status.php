@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['TCTP_MID'],
 	$_ENV['TCTP_SECRET_KEY']
 );
 
-$vendor = new \Growinc\Payment\Vendors\TCTP($init);
+$vendor = new \PyGPaymentLib\Vendors\TCTP($init);
 
 $payment_token = 'kSAops9Zwhos8hSTSeLTUeewPxlj0L9SBSDFG5q+NfL4R+6NMcBFClkhmhHtgYIOh3FQltsT5zStIxm0njenafc3pWL0PTjzQVxbZ+fxfn9yafTj43cxx1sip/WVaSaG';
 
@@ -31,9 +31,6 @@ try {
 					"locale": "en",
 					"additionalInfo": {
 						"merchantDetails": {
-							"name": "PT. Growinc Teknologi Indonesia",
-							"address": "Foresta Business Loft 5\n\nLengkong Kulon, Pagedangan, Tangerang, Banten",
-							"email": "info@growinc.co.id",
 							"logoUrl": "https:\/\/pgw-static-sandbox.s3.amazonaws.com\/images\/merchantlogo\/360360000000200.png"
 						},
 						"transactionDetails": {
@@ -52,7 +49,6 @@ try {
 							"autoRedirect": false,
 							"redirectImmediately": false,
 							"autoRedirectionTimer": 5000,
-							"frontendReturnUrl": "https:\/\/ibank.growinc.dev\/oanwef4851ashrb\/pg\/dk\/redapi_form\/",
 							"frontendReturnData": "eyJsb2NhbGUiOm51bGwsImludm9pY2VObyI6IjE2MDY5MDc0ODkiLCJjaGFubmVsQ29kZSI6IkNDIiwicmVzcENvZGUiOiIyMDAwIiwicmVzcERlc2MiOiJUcmFuc2FjdGlvbiBpcyBjb21wbGV0ZWQsIHBsZWFzZSBkbyBwYXltZW50IGlucXVpcnkgcmVxdWVzdCBmb3IgZnVsbCBwYXltZW50IGluZm9ybWF0aW9uLiJ9"
 						}
 					},
@@ -75,9 +71,6 @@ try {
 					"locale": "en",
 					"additionalInfo": {
 						"merchantDetails": {
-							"name": "PT. Growinc Teknologi Indonesia",
-							"address": "Foresta Business Loft 5\n\nLengkong Kulon, Pagedangan, Tangerang, Banten",
-							"email": "info@growinc.co.id",
 							"logoUrl": "https:\/\/pgw-static-sandbox.s3.amazonaws.com\/images\/merchantlogo\/360360000000200.png"
 						},
 						"transactionDetails": {
@@ -96,7 +89,6 @@ try {
 							"autoRedirect": false,
 							"redirectImmediately": false,
 							"autoRedirectionTimer": 5000,
-							"frontendReturnUrl": "https:\/\/ibank.growinc.dev\/oanwef4851ashrb\/pg\/dk\/redapi_form\/",
 							"frontendReturnData": "eyJsb2NhbGUiOm51bGwsImludm9pY2VObyI6IjEwMTAwIiwiY2hhbm5lbENvZGUiOiJPVk8iLCJyZXNwQ29kZSI6IjIwMDAiLCJyZXNwRGVzYyI6IlRyYW5zYWN0aW9uIGlzIGNvbXBsZXRlZCwgcGxlYXNlIGRvIHBheW1lbnQgaW5xdWlyeSByZXF1ZXN0IGZvciBmdWxsIHBheW1lbnQgaW5mb3JtYXRpb24uIn0="
 						}
 					},

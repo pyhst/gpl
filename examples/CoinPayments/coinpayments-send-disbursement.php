@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(null, null);
+$init = new \PyGPaymentLib\Init(null, null);
 $init->setMID($_ENV['COINPAYMENTS_CLIENT_ID']);
 $init->setSecret($_ENV['COINPAYMENTS_CLIENT_SECRET']);
 $init->setPaymentURL($_ENV['COINPAYMENTS_HOST_URL']);
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['COINPAYMENTS_HOST_URL']);
 $init->setCallbackURL($_ENV['COINPAYMENTS_WEBHOOK_URL']);
 $init->setReturnURL($_ENV['COINPAYMENTS_WEBHOOK_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\CoinPayments($init);
+$vendor = new \PyGPaymentLib\Vendors\CoinPayments($init);
 
 
 
@@ -37,7 +37,7 @@ $vendor = new \Growinc\Payment\Vendors\CoinPayments($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setOrderID(time());
 // 	$transaction->setCustomerBankAccountNumber('7700173383');
 // 	$transaction->setCustomerBankCode('011');
@@ -58,7 +58,7 @@ $vendor = new \Growinc\Payment\Vendors\CoinPayments($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setOrderID(time());
 // 	$transaction->setCustomerBankAccountNumber('7700173383');
 // 	$transaction->setCustomerBankCode('011');

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['FASPAY_MERCHANT_NAME'] . ' : ' . $_ENV['FASPAY_MERCHANT_ID'],
 	$_ENV['FASPAY_USER_ID'] . ' : ' . $_ENV['FASPAY_PASSWORD']
 );
@@ -12,7 +12,7 @@ $init->setParserURL($_ENV['FASPAY_PARSER']);
 $order_id = time();
 $invoice_no = 'INV' . $order_id;
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setOrderID($order_id);
 $transaction->setInvoiceNo($invoice_no);
 $transaction->setCurrency('IDR');
@@ -80,7 +80,7 @@ $selected_payment_channel = '801';
 // $selected_payment_channel = '711';
 $transaction->setPaymentMethod($selected_payment_channel);
 
-$vendor = new \Growinc\Payment\Vendors\Faspay($init);
+$vendor = new \PyGPaymentLib\Vendors\Faspay($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction); // return payment URL

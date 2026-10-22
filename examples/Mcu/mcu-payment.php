@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['MACAU_AGENT_CODE'],
 	$_ENV['MACAU_AGENT_DIVISION']
 );
@@ -11,7 +11,7 @@ $init->setPaymentURL($_ENV['MACAU_HOST_URL']);
 $order_id = time();
 $invoice_no = 'INV' . $order_id;
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setOrderID($order_id);
 $transaction->setInvoiceNo($invoice_no);
 $transaction->setCurrency('IDR');
@@ -37,7 +37,7 @@ $transaction->setParams([
 	'customer_bank_accname' => 'HUMAN',
 ]);
 
-$vendor = new \Growinc\Payment\Vendors\Mcu($init);
+$vendor = new \PyGPaymentLib\Vendors\Mcu($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction);

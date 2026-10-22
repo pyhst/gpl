@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(null, null);
+$init = new \PyGPaymentLib\Init(null, null);
 $init->setMID($_ENV['COINPAYMENTS_CLIENT_ID']);
 $init->setSecret($_ENV['COINPAYMENTS_CLIENT_SECRET']);
 $init->setPaymentURL($_ENV['COINPAYMENTS_HOST_URL']);
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['COINPAYMENTS_HOST_URL']);
 $init->setCallbackURL($_ENV['COINPAYMENTS_WEBHOOK_URL']);
 $init->setReturnURL($_ENV['COINPAYMENTS_WEBHOOK_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\CoinPayments($init);
+$vendor = new \PyGPaymentLib\Vendors\CoinPayments($init);
 
 
 /*------------------------------v BEGIN OF Currencies v------------------------------------------------------------ */
@@ -22,7 +22,7 @@ $vendor = new \Growinc\Payment\Vendors\CoinPayments($init);
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetCurrencies') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('QUERY_FILTER', 'USDT.ERC20');
 		$result = $vendor->GetCurrencies($transaction);
 		extract($result);
@@ -76,7 +76,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetCurrencies') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetMerchantCurrencies') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$result = $vendor->GetMerchantCurrencies($transaction);
 		extract($result);
 		print_r($response);
@@ -141,7 +141,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetMerchantCurrencies') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetConversionPairs') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$result = $vendor->GetConversionPairs($transaction);
 		extract($result);
 		print_r($response);
@@ -198,7 +198,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetConversionPairs') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetExchangeRates') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		//
 		// // $transaction->setParam('FROM', '1002'); // Litecoin Test
 		// // $transaction->setParam('FROM', '4'); // Ethereum
@@ -243,7 +243,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetExchangeRates') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetBlockchainFees') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('ID', '4'); // Ethereum
 		// $transaction->setParam('ID', '4:0xdac17f958d2ee523a2206206994597c13d831ec7'); // Tether USD
 		// $transaction->setParam('ID', '1002'); // Litecoin Test
@@ -272,7 +272,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetBlockchainFees') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetWallets') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$result = $vendor->GetWallets($transaction);
 		extract($result);
 		print_r($response);
@@ -290,7 +290,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetWallets') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'CreateWallet') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setParam('CURRENCY', 'IDR');
 		$transaction->setParam('LABEL', 'IDR WALLET');
 		$result = $vendor->CreateWallet($transaction);
@@ -314,7 +314,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'CreateWallet') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'SecurePayment') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setCustomerName('Tester Account');
 		$transaction->setCustomerPhone('081212121314');
 		$transaction->setCustomerEmail('tester@gmail.com');

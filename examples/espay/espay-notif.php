@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['ESPAY_MERCHANT_CODE'],
 	$_ENV['ESPAY_API_KEY']
 );
@@ -11,7 +11,7 @@ $init->setParams([
 	'password' => $_ENV['ESPAY_PASSWORD'],
 ]);
 
-$vendor = new \Growinc\Payment\Vendors\Espay($init);
+$vendor = new \PyGPaymentLib\Vendors\Espay($init);
 
 try {
 	$raw_data = file_get_contents("php://input");
@@ -21,9 +21,9 @@ try {
 	// 		"rq_uuid": "403e7d8b-5f57-417d-82ae-67ebc02bbbdd",
 	// 		"rq_datetime": "2021-06-25 15:15:15",
 	// 		"sender_id": "SGOPLUS",
-	// 		"receiver_id": "SGWGROWINC",
+	// 		"receiver_id": "SGW",
 	// 		"password": "Y0F,(5EM=#",
-	// 		"comm_code": "SGWGROWINC",
+	// 		"comm_code": "SGW",
 	// 		"member_code": "4490587880694973",
 	// 		"member_cust_id": "SYSTEM",
 	// 		"member_cust_name": "SYSTEM",

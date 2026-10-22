@@ -2,11 +2,11 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['MOTIONPAY_CLIENT_KEY'], $_ENV['MOTIONPAY_SERVER_KEY']);
+$init = new \PyGPaymentLib\Init($_ENV['MOTIONPAY_CLIENT_KEY'], $_ENV['MOTIONPAY_SERVER_KEY']);
 $init->setPaymentURL($_ENV['MOTIONPAY_HOST_URL']);
 $init->setRequestURL($_ENV['MOTIONPAY_HOST_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\MotionPay($init);
+$vendor = new \PyGPaymentLib\Vendors\MotionPay($init);
 
 
 
@@ -39,7 +39,7 @@ try {
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setPaymentMethod('qris');
 // 	$transaction->setPaymentChannel('');
 // 	$transaction->setReferenceNumber($transaction->getTime());

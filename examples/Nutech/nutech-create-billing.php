@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['NUTECH_MERCHANT_ID'], $_ENV['NUTECH_PRIVATE_KEY']);
+$init = new \PyGPaymentLib\Init($_ENV['NUTECH_MERCHANT_ID'], $_ENV['NUTECH_PRIVATE_KEY']);
 $init->setMerchantKey($_ENV['NUTECH_ALGO_SALT']);
 $init->setPaymentURL($_ENV['NUTECH_HOST_URL']);
 $init->setRequestURL($_ENV['NUTECH_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 $init->setReturnURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\Nutech($init);
+$vendor = new \PyGPaymentLib\Vendors\Nutech($init);
 
 
 
@@ -19,7 +19,7 @@ $vendor = new \Growinc\Payment\Vendors\Nutech($init);
 //  *
 //  */
 // try {
-// 	$transaction = new \Growinc\Payment\Transaction();
+// 	$transaction = new \PyGPaymentLib\Transaction();
 // 	$transaction->setAmount(10000);
 // 	$transaction->setCustomerName('Testing');
 // 	$transaction->setCustomerPhone('081212121314');

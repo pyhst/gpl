@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['ESPAY_MERCHANT_CODE'],
 	$_ENV['ESPAY_API_KEY']
 );
@@ -11,7 +11,7 @@ $init->setParams([
 	'signature' => $_ENV['ESPAY_SIGNATURE'],
 	'password' => $_ENV['ESPAY_PASSWORD'],
 ]);
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setInvoiceNo('TEST' . time());
 $transaction->setCustomerName('Testing');
 $transaction->setCustomerEmail('testing@email.com');
@@ -40,7 +40,7 @@ $transaction->setPaymentMethod('ibank,014'); // BCA VA Online
 // $transaction->setPaymentMethod('cstore,066'); // indomaret
 // $transaction->setPaymentMethod('cstore,026'); // alfamart
 
-$vendor = new \Growinc\Payment\Vendors\Espay($init);
+$vendor = new \PyGPaymentLib\Vendors\Espay($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction);

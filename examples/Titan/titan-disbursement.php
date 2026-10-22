@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['TITAN_CLIENT_KEY'], $_ENV['TITAN_PARTNER_ID']);
+$init = new \PyGPaymentLib\Init($_ENV['TITAN_CLIENT_KEY'], $_ENV['TITAN_PARTNER_ID']);
 $init->setPrivateKey($_ENV['TITAN_PRIVATE_KEY']);
 $init->setPublicKey($_ENV['TITAN_PUBLIC_KEY']);
 $init->setParam('TITAN_ACCOUNT_NO', $_ENV['TITAN_ACCOUNT_NO']);
@@ -12,7 +12,7 @@ $init->setRequestURL($_ENV['TITAN_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 $init->setReturnURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\Titan($init);
+$vendor = new \PyGPaymentLib\Vendors\Titan($init);
 
 
 /**
@@ -90,7 +90,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'CheckBalance') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'BankAccountInquiry') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setCustomerBankCode('014');
 		$transaction->setCustomerBankAccountNumber('5020359309');
 		$transaction->setAmount(10000);
@@ -135,7 +135,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'BankAccountInquiry') {
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'OnlineTransferExec') {
 	try {
 		$time = time();
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setReferenceNumber('TRANSFER_' . $time . '_' . rand(1000,9999));
 		$transaction->setAmount(10000);
 		//

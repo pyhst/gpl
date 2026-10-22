@@ -1,10 +1,10 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
-use Growinc\Payment\Transaction;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
+use PyGPaymentLib\Transaction;
 
 class Ipay88 extends Requestor implements VendorInterface
 {

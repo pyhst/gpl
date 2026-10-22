@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['PAYOK_MERCHANT_ID'], null);
+$init = new \PyGPaymentLib\Init($_ENV['PAYOK_MERCHANT_ID'], null);
 $init->setParams([
 	'PAYOK_PRIVATE_KEY' => $_ENV['PAYOK_PRIVATE_KEY'],
 	'PAYOK_PUBLIC_KEY' => $_ENV['PAYOK_PUBLIC_KEY'],
@@ -12,7 +12,7 @@ $init->setRequestURL($_ENV['PAYOK_HOST_URL']);
 $init->setCallbackURL('http://tester.com/secure/callback/demo');
 $init->setReturnURL('http://tester.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\PayOk($init);
+$vendor = new \PyGPaymentLib\Vendors\PayOk($init);
 
 
 
@@ -22,7 +22,7 @@ $vendor = new \Growinc\Payment\Vendors\PayOk($init);
  *
  */
 try {
-	$transaction = new \Growinc\Payment\Transaction();
+	$transaction = new \PyGPaymentLib\Transaction();
 	$transaction->setCustomerName('TESTER');
 	$transaction->setCustomerPhone('081111111111');
 	$transaction->setAmount(15000);

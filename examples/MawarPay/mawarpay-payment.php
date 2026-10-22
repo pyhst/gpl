@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['MAWARPAY_MERCHANT_ID']);
+$init = new \PyGPaymentLib\Init($_ENV['MAWARPAY_MERCHANT_ID']);
 $init->setPrivateKey($_ENV['MAWARPAY_MERCHANT_PRIVATE_KEY']);
 $init->setPublicKey($_ENV['MAWARPAY_PUBLIC_KEY']);
 $init->setPaymentURL($_ENV['MAWARPAY_HOST_URL']);
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['MAWARPAY_HOST_URL']);
 $init->setCallbackURL($_ENV['MAWARPAY_WEBHOOK_URL']);
 $init->setReturnURL($_ENV['MAWARPAY_WEBHOOK_URL']);
 
-$vendor = new \Growinc\Payment\Vendors\MawarPay($init);
+$vendor = new \PyGPaymentLib\Vendors\MawarPay($init);
 
 
 
@@ -22,7 +22,7 @@ $vendor = new \Growinc\Payment\Vendors\MawarPay($init);
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'SecurePayment') {
 	try {
 		$time = time();
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setReferenceNumber($time);
 		$transaction->setAmount(15000);
 		$transaction->setDescription('BILLING1');
@@ -79,7 +79,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'SecurePayment') {
  */
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'Inquiry') {
 	try {
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$result = $vendor->Inquiry((object) [
 			'outTradeNo' => '1792311038',
 		]);

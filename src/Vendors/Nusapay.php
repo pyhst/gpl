@@ -1,10 +1,10 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Init;
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Init;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
 class Nusapay extends Requestor implements VendorInterface
 {
@@ -150,12 +150,12 @@ class Nusapay extends Requestor implements VendorInterface
 	|
 	///////////////////////////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\*/
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$payment_method = strtolower(trim($transaction->getPaymentMethod()));
@@ -695,7 +695,7 @@ class Nusapay extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function InterbankTransferInquiry(\Growinc\Payment\Transaction $transaction)
+	public function InterbankTransferInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$this->request['data'] = [
@@ -749,7 +749,7 @@ class Nusapay extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function InHouseTransfer(\Growinc\Payment\Transaction $transaction)
+	public function InHouseTransfer(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$this->request['data'] = [
@@ -815,7 +815,7 @@ class Nusapay extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function CheckTransfer(\Growinc\Payment\Transaction $transaction)
+	public function CheckTransfer(\PyGPaymentLib\Transaction $transaction)
 	{
 		// try {
 		// 	$this->request['data'] = [

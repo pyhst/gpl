@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['WINPAY_PRIVATE_KEY_1'],
 	$_ENV['WINPAY_PRIVATE_KEY_2']
 );
@@ -11,7 +11,7 @@ $init->setPaymentURL($_ENV['WINPAY_HOST_URL']);
 $init->setCallbackURL($_ENV['WINPAY_CALLBACK_URL']);
 $init->setReturnURL($_ENV['WINPAY_RETURN_URL']);
 
-$transaction = new \Growinc\Payment\Transaction();
+$transaction = new \PyGPaymentLib\Transaction();
 $transaction->setCustomerName('testing');
 $transaction->setCustomerEmail('testing@gmail.com');
 $transaction->setCustomerPhone('088812131415');
@@ -78,7 +78,7 @@ QR Code Statis bersifat open nominal, customer dapat input nominal berapapun
 // $transaction->setPaymentMethod('va,MANDIRIVA');
 $transaction->setPaymentMethod('qr,QRISPAY');
 
-$vendor = new \Growinc\Payment\Vendors\Winpay($init);
+$vendor = new \PyGPaymentLib\Vendors\Winpay($init);
 
 try {
 	$result = $vendor->SecurePayment($transaction);

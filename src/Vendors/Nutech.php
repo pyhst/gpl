@@ -1,11 +1,11 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
-use Growinc\Payment\Helper;
+use PyGPaymentLib\Helper;
 
 class Nutech extends Requestor implements VendorInterface
 {
@@ -34,7 +34,7 @@ class Nutech extends Requestor implements VendorInterface
 	 *
 	 */
 
-	public function OnlineTransferExec(\Growinc\Payment\Transaction $transaction)
+	public function OnlineTransferExec(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$data = [
@@ -204,7 +204,7 @@ class Nutech extends Requestor implements VendorInterface
 		return SELF::JSONResult($this->request, $res, $status_code);
 	}
 
-	public function BankAccountInquiry(\Growinc\Payment\Transaction $transaction)
+	public function BankAccountInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$data = [
@@ -299,12 +299,12 @@ class Nutech extends Requestor implements VendorInterface
 		return $final;
 	}
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$this->transaction = $transaction;

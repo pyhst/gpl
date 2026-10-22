@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init($_ENV['TITAN_CLIENT_KEY'], $_ENV['TITAN_PARTNER_ID']);
+$init = new \PyGPaymentLib\Init($_ENV['TITAN_CLIENT_KEY'], $_ENV['TITAN_PARTNER_ID']);
 $init->setPrivateKey($_ENV['TITAN_PRIVATE_KEY']);
 $init->setPublicKey($_ENV['TITAN_PUBLIC_KEY']);
 $init->setPaymentURL($_ENV['TITAN_HOST_URL']);
@@ -10,7 +10,7 @@ $init->setRequestURL($_ENV['TITAN_HOST_URL']);
 $init->setCallbackURL('http://sb.tf2us.com/secure/callback/demo');
 $init->setReturnURL('http://sb.tf2us.com/secure/callback/demo');
 
-$vendor = new \Growinc\Payment\Vendors\Titan($init);
+$vendor = new \PyGPaymentLib\Vendors\Titan($init);
 
 
 /**
@@ -38,7 +38,7 @@ if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'GetToken') {
 if (!empty($_REQUEST['a']) && $_REQUEST['a'] == 'SecurePayment') {
 	try {
 		$time = time();
-		$transaction = new \Growinc\Payment\Transaction();
+		$transaction = new \PyGPaymentLib\Transaction();
 		$transaction->setPaymentMethod('qris');
 		$transaction->setPaymentChannel('qris');
 		$transaction->setReferenceNumber('QRIS' . $time);

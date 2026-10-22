@@ -2,12 +2,12 @@
 
 require_once __DIR__ . '/../includes.php';
 
-$init = new \Growinc\Payment\Init(
+$init = new \PyGPaymentLib\Init(
 	$_ENV['MIDTRANS_CLIENT_KEY'],
 	$_ENV['MIDTRANS_SERVER_KEY']
 );
 
-$vendor = new \Growinc\Payment\Vendors\Midtrans($init);
+$vendor = new \PyGPaymentLib\Vendors\Midtrans($init);
 
 // $raw_data = file_get_contents("php://input");
 	// if (!$raw_data) {

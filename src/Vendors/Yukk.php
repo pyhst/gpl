@@ -1,11 +1,11 @@
 <?php
 
-namespace Growinc\Payment\Vendors;
+namespace PyGPaymentLib\Vendors;
 
-use Growinc\Payment\Requestor;
-use Growinc\Payment\Vendors\VendorInterface;
+use PyGPaymentLib\Requestor;
+use PyGPaymentLib\Vendors\VendorInterface;
 
-use Growinc\Payment\Helper;
+use PyGPaymentLib\Helper;
 
 class Yukk extends Requestor implements VendorInterface
 {
@@ -36,12 +36,12 @@ class Yukk extends Requestor implements VendorInterface
 	|
 	///////////////////////////////////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\ ///////////////////////*/
 
-	public function RedirectPayment(\Growinc\Payment\Transaction $transaction)
+	public function RedirectPayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Not applicable
 	}
 
-	public function SecurePayment(\Growinc\Payment\Transaction $transaction)
+	public function SecurePayment(\PyGPaymentLib\Transaction $transaction)
 	{
 		try {
 			$payment_method = $transaction->getPaymentMethod();
@@ -265,12 +265,12 @@ class Yukk extends Requestor implements VendorInterface
 		// Inapplicable
 	}
 
-	public function BankAccountInquiry(\Growinc\Payment\Transaction $transaction)
+	public function BankAccountInquiry(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
 
-	public function OnlineTransferExec(\Growinc\Payment\Transaction $transaction)
+	public function OnlineTransferExec(\PyGPaymentLib\Transaction $transaction)
 	{
 		// Inapplicable
 	}
