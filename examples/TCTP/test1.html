@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<title>Secure Payment #200101</title>
+		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+		<script>
+			$(document).ready(function() { $('#submit').click(); });
+		</script>
+</head>
+<body>
+		<form action="https://payid.2c2p.com/SecurePayment/PaymentAuth.aspx" method="POST" name="paymentRequestForm" id="paymentRequestForm">
+			<!--display wait message to user when page is loading-->
+			Processing payment request. Please DO NOT close the browser, pressing back or refreshing the page.
+			<input type="hidden" name="paymentRequest" value="PFBheW1lbnRSZXF1ZXN0Pjx2ZXJzaW9uPjkuOTwvdmVyc2lvbj48cGF5bG9hZD5QRkJoZVcxbGJuUlNaWEYxWlhOMFBnb0pQRzFsY21Ob1lXNTBTVVErTXpZd016WXdNREF3TURBd01USTFQQzl0WlhKamFHRnVkRWxFUGdvSlBIVnVhWEYxWlZSeVlXNXpZV04wYVc5dVEyOWtaVDR5TURBeE1ERThMM1Z1YVhGMVpWUnlZVzV6WVdOMGFXOXVRMjlrWlQ0S0NUeGtaWE5qUGxCaGVXMWxiblE4TDJSbGMyTStDZ2s4WVcxMFBqQXdNREF4TURBd01EQXdNRHd2WVcxMFBnb0pQR04xY25KbGJtTjVRMjlrWlQ0ek5qQThMMk4xY25KbGJtTjVRMjlrWlQ0S0NUeHdZVzVEYjNWdWRISjVQa2xFUEM5d1lXNURiM1Z1ZEhKNVBnb0pQR05oY21Sb2IyeGtaWEpPWVcxbFBsTkZRVTQ4TDJOaGNtUm9iMnhrWlhKT1lXMWxQZ29KUEdOaGNtUm9iMnhrWlhKRmJXRnBiRDV6WldGdVFHNTFjMmt1WTI4dWFXUThMMk5oY21Sb2IyeGtaWEpGYldGcGJENEtDUWs4Y0dGNWJXVnVkRU5vWVc1dVpXdytQQzl3WVhsdFpXNTBRMmhoYm01bGJENEtDUWs4WVdkbGJuUkRiMlJsUGp3dllXZGxiblJEYjJSbFBnb0pDVHhqYUdGdWJtVnNRMjlrWlQ0OEwyTm9ZVzV1Wld4RGIyUmxQZ29KQ1R4d1lYbHRaVzUwUlhod2FYSjVQakl3TWpNdE1ERXRNaklnTWpNNk5UazZOVGs4TDNCaGVXMWxiblJGZUhCcGNuaytDZ2tKUEcxdlltbHNaVTV2UGpBNE5UWTVPRGN6TlRNMVBDOXRiMkpwYkdWT2J6NEtDUWtKUEdWdVkwTmhjbVJFWVhSaFBqQXdZV05rYXpoUlFqUlJPRWRQWWxCclZXazJSbVoyUlZScGNVSjViemx6YjBZek5tc3hTVk15WlhaTFpVOUVkMnRMZEU1SVZreEZWbTlYUlZocFEzRldPVlZzUzNSbU5EbE9RMkU1Ylcxc1lWWlZkR3huVG5keFJIaERTRVpvUkRKVFVUTlVXRk40Vm5ObFdtSTBkbHBQYmxSdFVtaHlUWEo0V0RabGNTOVZialpLWVcxV1lqVkJXRkpHYlRaMEsyczJhVkV3Y0ZsellrNWpiSFJ1WTFwQ1pFMU9ObGhIVVZGTVRsZHZaRkU5VlRKR2MyUkhWbXRZTVRoTFlrZHRaMHRxUkdWTWVWZEJUbk51U0hwNlZHaFFNWEpEUmswM1oxSlBURFZMUjBwT1pqaENWRkZwTkVWaFZtOXhVVEZaUVR3dlpXNWpRMkZ5WkVSaGRHRStDZ2tKQ1R4emRHOXlaVU5oY21RK1Rqd3ZjM1J2Y21WRFlYSmtQZ284TDFCaGVXMWxiblJTWlhGMVpYTjBQZz09PC9wYXlsb2FkPjxzaWduYXR1cmU+NkEwRDg0Rjc5MTZCMEE3OEI4MUUzQUY1RUNGM0E2QjEyMDhBMjA2MkYyNzI3N0IwQTVDOEYxNzdFNkIyOTA1Qjwvc2lnbmF0dXJlPjwvUGF5bWVudFJlcXVlc3Q+">
+		</form>
+		<script language="JavaScript">
+			//submit form to 2c2p PGW
+			document.paymentRequestForm.submit();
+		</script>
+</body>
+</html>
